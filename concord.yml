@@ -2,6 +2,10 @@ configuration:
   runtime: "concord-v2"
   dependencies:
     - mvn://com.walmartlabs.concord.plugins.basic:smtp-tasks:1.103.0
+  arguments:
+    smtpParams:
+      host: smtp.gmail.com
+      port: 25
 
 flows:
   default:
