@@ -1,6 +1,6 @@
 flows:
   default:
-    task: docker
+    - task: docker
       in:
         image: library/alpine
         cmd: |
