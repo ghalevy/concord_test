@@ -1,7 +1,9 @@
-- task: docker
-  in:
-    image: library/alpine
-    cmd: |
-      echo "First command"
-      echo "Second command"
-      echo "Third command"
+flows:
+  default:
+    task: docker
+      in:
+        image: library/alpine
+        cmd: |
+          echo "First command"
+          echo "Second command"
+          echo "Third command"
