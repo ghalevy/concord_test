@@ -19,7 +19,7 @@ flows:
     - task: smtp
       in:
         mail:
-          from: test@concord_test.com
+          from: test@concordtest.com
           to: ghalevy@gmail.com.com
           subject: "Hello from Concord"
           message: "My message"
