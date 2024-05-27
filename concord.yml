@@ -4,7 +4,7 @@ configuration:
     - "mvn://org.python:jython-standalone:2.7.2"
 
 flows:
-  default:
+  onPush:
     - task: docker
       in:
         image: library/alpine
@@ -17,3 +17,9 @@ flows:
         a = [2,3,5,7,9]
         print(a[-1])
 
+triggers:
+  - github:
+      useInitiator: true
+      entryPoint: onPush
+      conditions:
+        type: push
