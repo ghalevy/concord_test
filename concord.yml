@@ -13,7 +13,7 @@ flows:
           echo "Second command"
           echo "Third command"
     - script: python
-      body:
+      body: |
         a = [2,3,5,7,9]
         print(a[-1])
 
