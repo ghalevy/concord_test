@@ -25,3 +25,7 @@ triggers:
       entryPoint: onPush
       conditions:
         type: push
+  - cron: 
+      spec: "* * * * *"
+      entryPoint: onPush
+
