@@ -10,3 +10,10 @@ flows:
           echo "First command"
           echo "Second command"
           echo "Third command"
+    - task: smtp
+      in:
+        mail:
+          from: test@concord_test.com
+          to: ghalevy@gmail.com.com
+          subject: "Hello from Concord"
+          message: "My message"
