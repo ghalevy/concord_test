@@ -12,6 +12,7 @@ flows:
           echo "First command"
           echo "Second command"
           echo "Third command"
+          echo "Fourth command"
     - script: python
       body: |
         a = [2,3,5,7,9]
