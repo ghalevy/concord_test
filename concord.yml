@@ -22,7 +22,7 @@ flows:
       in:
         image: library/alpine
         cmd: |
-          echo "PR opened!"
+          echo "PR opened!!"
     - script: python
       body: |
         a = [2,3,5,7,9,11]
