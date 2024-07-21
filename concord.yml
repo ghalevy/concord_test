@@ -24,7 +24,9 @@ triggers:
       entryPoint: onPush
       conditions:
         type: push
-  # - cron: 
-  #     spec: "* * * * *"
-  #     entryPoint: onPush
-
+  - github:
+    entryPoint: "onPr"
+    conditions:
+      type: "pull_request"
+      status: "opened"
+      branch: ".*"
