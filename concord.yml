@@ -17,16 +17,28 @@ flows:
       body: |
         a = [2,3,5,7,9,11]
         print(a[-1])
+  onPr:
+    - task: docker
+      in:
+        image: library/alpine
+        cmd: |
+          echo "PR opened!"
+    - script: python
+      body: |
+        a = [2,3,5,7,9,11]
+        print(a[-2])
 
 triggers:
   - github:
+      version: 2
       useInitiator: true
       entryPoint: onPush
       conditions:
         type: push
   - github:
-    entryPoint: "onPr"
-    conditions:
-      type: "pull_request"
-      status: "opened"
-      branch: ".*"
+      version: 2
+      entryPoint: "onPr"
+      conditions:
+        type: "pull_request"
+        status: "opened"
+        branch: ".*"
