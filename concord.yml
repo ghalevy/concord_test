@@ -20,7 +20,6 @@ flows:
 
 triggers:
   - github:
-      version: 2
       useInitiator: true
       entryPoint: onPush
       conditions:
