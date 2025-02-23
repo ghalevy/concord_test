@@ -8,6 +8,7 @@ flows:
   ak:
     - task: akeyless
       in:
+        apiBasePath: "https://api.akeyless.io"
         action: createSecret
         path: "cctestsecret"
         auth:
