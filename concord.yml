@@ -9,11 +9,9 @@ flows:
     - task: akeyless
       in:
         apiBasePath: "https://api.akeyless.io"
-        action: createSecret
-        path: "/test2"
+        action: auth
         auth:
           apiKey:
-            # single-value (string) secrets
             accessId: { org: "", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
             accessKey: { org: "", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
         debug: true
