@@ -13,8 +13,8 @@ flows:
         auth:
           apiKey:
             # single-value (string) secrets
-            accessId: { org: "ghalevy@gmail.com", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
-            accessKey: { org: "ghalevy@gmail.com", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
+            accessId: { name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
+            accessKey: { name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
       out: result
     # shorthand, public method
     - expr: "${akeyless.getSecret('/clitest')}"
