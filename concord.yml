@@ -11,7 +11,7 @@ flows:
   ak:
     - task: akeyless
       in:
-        apiBasePath: "https://api.akeyless.io"
+        # apiBasePath: "https://api.akeyless.io"
         action: auth
         auth:
           apiKey:
