@@ -1,4 +1,7 @@
 configuration:
+  arguments:
+    ak_accessId: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}"
+    ak_accessKey: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}"
   runtime: "concord-v2"
   dependencies:
     - "mvn://org.python:jython-standalone:2.7.2"
@@ -12,8 +15,8 @@ flows:
         action: auth
         auth:
           apiKey:
-            accessId: { org: "", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
-            accessKey: { org: "", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
+            accessId: { org: "", name: "${ak_accessId}" }
+            accessKey: { org: "", name: "${ak_accessKey}" }
         debug: true
       out: result
 
