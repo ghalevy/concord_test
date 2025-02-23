@@ -10,7 +10,7 @@ flows:
       in:
         apiBasePath: "https://api.akeyless.io"
         action: createSecret
-        path: "cctestsecret"
+        path: "/Personal/cctestsecret"
         auth:
           apiKey:
             # single-value (string) secrets
