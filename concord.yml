@@ -8,8 +8,8 @@ flows:
   ak:
     - task: akeyless
       in:
-        action: getSecret
-        path: "/clitest"
+        action: createSecret
+        path: "/cctestsecret"
         auth:
           apiKey:
             # single-value (string) secrets
