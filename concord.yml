@@ -9,8 +9,8 @@ flows:
     - task: akeyless
       in:
         apiBasePath: "https://api.akeyless.io"
-        action: createSecret
-        path: "/cctestsecret"
+        action: getSecret
+        path: "/clitest"
         auth:
           apiKey:
             # single-value (string) secrets
