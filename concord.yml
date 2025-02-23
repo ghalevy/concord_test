@@ -10,6 +10,11 @@ flows:
       in:
         action: getSecret
         path: "/my-secret"
+        auth:
+          apiKey:
+            # single-value (string) secrets
+            accessId: { org: "my-org", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
+            accessKey: { org: "my-org", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
       out: result
     # shorthand, public method
     - expr: "${akeyless.getSecret('/clitest')}"
