@@ -15,6 +15,7 @@ flows:
             # single-value (string) secrets
             accessId: { org: "Personal", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}" }
             accessKey: { org: "Personal", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
+        debug: true
       out: result
     # shorthand, public method
     - expr: "${akeyless.getSecret('/clitest')}"
