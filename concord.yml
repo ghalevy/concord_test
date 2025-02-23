@@ -9,8 +9,8 @@ flows:
     - task: akeyless
       in:
         apiBasePath: "https://api.akeyless.io"
-        action: getSecret
-        path: "/clitest"
+        action: createSecret
+        path: "/test2"
         auth:
           apiKey:
             # single-value (string) secrets
@@ -18,9 +18,6 @@ flows:
             accessKey: { org: "", name: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}" }
         debug: true
       out: result
-    # shorthand, public method
-    - expr: "${akeyless.getSecret('/clitest')}"
-      out: singleValue
 
   onPush:
     - task: docker
