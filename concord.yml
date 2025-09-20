@@ -11,7 +11,7 @@ flows:
 
   test:
     - set:
-        mylist: ${List("foo")}
+        mylist: ${"foo".toList()}
     - expr: ${mylist.add("bar")}
     - log: "mylist: ${mylist}"
 
