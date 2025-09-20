@@ -8,6 +8,13 @@ configuration:
     - mvn://com.walmartlabs.concord.plugins:akeyless-task:2.6.0
 
 flows:
+
+  test:
+    - set:
+        mylist: "foo"
+    - expr: mylist.push("bar")
+    - log: "mylist: ${mylist}"
+
   ak:
     - task: akeyless
       in:
