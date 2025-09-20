@@ -1,0 +1,69 @@
+configuration:
+  arguments:
+    ak_accessId: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessId', '')}"
+    ak_accessKey: "${crypto.exportAsString(projectInfo.orgName, 'akeyless_accessKey', '')}"
+  runtime: "concord-v2"
+  dependencies:
+    - "mvn://org.python:jython-standalone:2.7.2"
+    - mvn://com.walmartlabs.concord.plugins:akeyless-task:2.6.0
+
+flows:
+
+  test:
+    - set:
+        mylist:
+          - foo
+          - bar
+    - expr: ${mylist.add("baz")}
+    - log: "mylist: ${mylist}"
+
+  ak:
+    - task: akeyless
+      in:
+        # apiBasePath: "https://api.akeyless.io"
+        action: auth
+        auth:
+          apiKey:
+            accessId: { org: "", name: "${ak_accessId}" }
+            accessKey: { org: "", name: "${ak_accessKey}" }
+        debug: true
+      out: result
+
+  onPush:
+    - task: docker
+      in:
+        image: library/alpine
+        cmd: |
+          echo "First command"
+          echo "Second command"
+          echo "Third command"
+          echo "Fourth command"
+    - script: python
+      body: |
+        a = [2,3,5,7,9,11]
+        print(a[-1])
+  onPr:
+    - task: docker
+      in:
+        image: library/alpine
+        cmd: |
+          echo "PR opened!!"
+    - script: python
+      body: |
+        a = [2,3,5,7,9,11]
+        print(a[-2])
+
+triggers:
+  - github:
+      version: 2
+      useInitiator: true
+      entryPoint: onPush
+      conditions:
+        type: push
+  - github:
+      version: 2
+      entryPoint: "onPr"
+      conditions:
+        type: "pull_request"
+        status: "opened"
+        branch: ".*"
