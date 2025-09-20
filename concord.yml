@@ -12,7 +12,7 @@ flows:
   test:
     - set:
         mylist: "foo"
-    - expr: mylist.push("bar")
+    - expr: mylist.put("bar")
     - log: "mylist: ${mylist}"
 
   ak:
